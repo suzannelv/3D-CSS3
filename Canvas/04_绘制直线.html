@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding:0;
+      background-image: url(../3D动画/img/grid.png);
+    }
+    canvas {
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="tutorial" width="300" height="300">
+    升级浏览器
+  </canvas>
+
+  <script>
+    window.onload = function() {
+      let canvasEl = document.getElementById('tutorial')
+    
+      if(!canvasEl.getContext) {
+        return 
+      }
+      let ctx = canvasEl.getContext('2d') // 2d | webGL
+      // ctx.lineWidth = 10
+      // 1. 创建新的路径
+      ctx.beginPath()
+      // 2.使用的绘图命名 (ctx对象中的属性和API)
+      ctx.moveTo(10, 10)     
+      ctx.lineTo(100, 10)
+      
+      // 3.闭合路径  (不是必须)
+      // ctx.closePath()
+ 
+      // 4.描边或填充
+      ctx.stroke() //绘制线条只能用stroke填充，不能用 fill填充
+      
+
+    
+
+    }
+  </script>
+</body>
+</html>

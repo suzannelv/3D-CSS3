@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding:0;
+      background-image: url(../3D动画/img/grid.png);
+    }
+    canvas {
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="tutorial" width="300" height="300">
+    升级浏览器
+  </canvas>
+
+  <script>
+    window.onload = function() {
+      let canvasEl = document.getElementById('tutorial')
+    
+      if(!canvasEl.getContext) {
+        return 
+      }
+      let ctx = canvasEl.getContext('2d') // 2d | webGL
+      ctx.lineWidth = 1
+      ctx.beginPath()
+      ctx.moveTo(20.5, 20)
+      ctx.lineTo(20.5, 100)
+      ctx.stroke()
+     
+      
+
+    
+
+    }
+  </script>
+</body>
+</html>

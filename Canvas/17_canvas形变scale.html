@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding:0;
+      background-image: url(../3D动画/img/grid.png);
+    }
+    canvas {
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="tutorial" width="300" height="300">
+    升级浏览器
+  </canvas>
+
+  <script>
+    window.onload = function() {
+      // 1. obtenir l'élément de canvas
+      let canvasEl = document.getElementById('tutorial')
+    
+      if(!canvasEl.getContext) {
+        return 
+      }
+      let ctx = canvasEl.getContext('2d') // 2d | webGL
+       
+      // 形变之前把原坐标存起来
+      ctx.save()
+      // 1. scale
+      ctx.translate(100, 100)
+      ctx.scale(2, 2)//对坐标轴进行放大了2倍
+      ctx.translate(10, 0)//10px 变成20px
+      ctx.fillRect(0, 0, 50, 50)
+      
+      // 恢复了形变之前的状态(0, 0)
+      ctx.restore()
+
+    }
+  </script>
+</body>
+</html>

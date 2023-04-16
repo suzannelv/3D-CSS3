@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding:0;
+      background-image: url(../3D动画/img/grid.png);
+    }
+    canvas {
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="tutorial" width="300" height="300">
+    升级浏览器
+  </canvas>
+
+  <script>
+    window.onload = function() {
+      // 1. obtenir l'élément de canvas
+      let canvasEl = document.getElementById('tutorial')
+    
+      if(!canvasEl.getContext) {
+        return 
+      }
+      let ctx = canvasEl.getContext('2d') // 2d | webGL
+       
+      // 形变之前把原坐标存起来
+      ctx.save()
+      // 1. rotate
+      ctx.translate(100, 100)
+      // 360 -> Math.PI * 2
+      // 180 -> Math.PI
+      // 1-> Math.PI /180
+      // 45-> Math.PI/180 * 45
+      ctx.rotate(Math.PI / 180 * 45)
+      ctx.fillRect(0, 0, 50, 50)
+      
+      // 恢复了形变之前的状态(0, 0)
+      ctx.restore()
+
+      ctx.save()
+      ctx.translate(100, 0)
+      ctx.fillRect(0, 0, 50, 50)
+      ctx.restore()
+    }
+  </script>
+</body>
+</html>

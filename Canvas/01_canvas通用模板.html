@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas {
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="tutorial" width="300" height="300">
+    升级浏览器
+  </canvas>
+
+  <script>
+    window.onload = function() {
+      // 1. obtenir l'élément de canvas
+      let canvasEl = document.querySelector('#tutorial')
+      // console.log(canvasEl)
+      // 把打印出来的转化成对象
+      // console.log("%O", canvasEl)
+      // 2. 拿到canvas渲染的上下文
+      if(!canvasEl.getContext) return 
+      // cxt: CanvasRenderingContext2D
+      // cxt 是一个绘图的上下文：提供了绘图的指令，乐意绘制各种图形
+      let cxt = canvasEl.getContext('2d') // 2d | webGL
+      console.log(cxt)
+    }
+  </script>
+</body>
+</html>
