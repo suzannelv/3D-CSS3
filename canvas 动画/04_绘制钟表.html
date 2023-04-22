@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding:0;
+      background-image: url(../3D动画/img/grid.png);
+    }
+    canvas {
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+
+    .clock{
+      margin: 10px;
+      width:300px;
+      height: 300px;
+      background-color: black;
+      border-radius: 50px;
+    }
+  </style>
+</head>
+<body>
+<div class="clock">
+  <canvas id="tutorial" width="300" height="300">
+    升级浏览器
+  </canvas>
+</div>
+
+  <script>
+    window.onload = function() {
+      // 1. obtenir l'élément de canvas
+      let canvasEl = document.getElementById('tutorial')
+    
+      if(!canvasEl.getContext) {
+        return 
+      }
+      let ctx = canvasEl.getContext('2d') // 2d | webGL
+       
+      requestAnimationFrame(draw)
+
+      function draw() {
+      
+    
+        // nettoyer le canvas
+        ctx.clearRect(0, 0, 300, 300)
+        ctx.save()
+
+        // 1. 绘制白色圆
+        ctx.save()
+        ctx.translate(150, 150)
+        ctx.fillStyle = 'white'
+        ctx.beginPath()
+        ctx.arc(0, 0, 130, 0, Math.PI * 2)
+        ctx.fill()
+        ctx.restore()
+
+        // 1. 绘制数字
+   
+        ctx.font = "30px fangsong"
+        ctx.textBaseline = "middle"
+        ctx.textAlign = "center"
+        ctx.fillText(3, 100, 0)
+
+        // 参考线
+
+
+
+
+        ctx.restore()
+
+
+        
+        ctx.restore()
+        requestAnimationFrame(draw)
+
+
+
+      }
+
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, ul{
+      margin: 0; 
+      padding:0;
+
+    }
+    body{
+      background-image: url(./img/grid.png);
+
+    }
+    svg{
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+    <!-- 圆 -->
+   <circle cx="200" cy="100" r="50" fill="red"></circle>
+
+   <!-- ellipse ovale 椭圆 -->
+  <ellipse cx="100" cy="200" rx="50" ry="80" fill="blue"></ellipse>
+  <!-- line 直线-->
+  <line x1 ="100" y1="0" x2="200" y2="0" stroke="green" stroke-width="5"></line>
+
+
+  <!-- polyline 折线 -->
+  <!-- méthode 1: -->
+  <polyline points="20 10, 80 40, 20 70" fill="transparent" stroke="yellow"></polyline>
+  <!-- méthode 2:  -->
+  <polyline points="200 100 300 250 200 300"></polyline>
+
+
+  <!-- polygon多边形 -->
+  <polygon points="30 60, 70 70, 60 90" fill="transparent" stroke="red"></polygon>
+
+</svg>
+</body>
+</html>

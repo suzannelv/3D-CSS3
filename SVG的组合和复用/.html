@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, ul{
+      margin: 0; 
+      padding:0;
+
+    }
+    body{
+      background-image: url(../SVG/img/grid.png);
+
+    }
+    svg{
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+
+  </style>
+</head>
+<body>
+  <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+
+<!-- icon 1 -->
+    <symbol id="previous" viewBox="0 0 100 100 ">
+       <path d="M 80 0, L 20 50, L 80 100 Z"></path>
+    </symbol>
+<!-- icon 2 -->
+    <symbol id="next" viewBox="0 0 100 100 ">
+      <polygon points="20 0, 80 50, 20 100"></polygon>
+    </symbol>
+
+    <!-- utiliser -->
+    <use href="#previous" width="100" heigt="100"></use>
+    
+  </svg>
+
+
+  <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">    
+    
+     <use href="#previous" width="30" heigt="30"></use>
+   
+  </svg>
+
+  <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">    
+    
+    <use href="#previous"></use>
+  
+ </svg>
+  
+
+</body>
+</html>

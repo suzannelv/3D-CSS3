@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, ul{
+      margin: 0; 
+      padding:0;
+
+    }
+    body{
+      background-image: url(./img/grid.png);
+
+    }
+    svg{
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+    /* text{
+      fill: red;
+    } */
+  </style>
+</head>
+<body>
+  <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg"> 
+    <!-- 文本对齐方式 -->
+    <text x="100" y="100" font-size="50" text-anchor="middle" fill="green">Ay</text>
+
+    <!-- 基线对齐方式：auto, middle, hanging,  -->
+    <text x="200" y="100" dominant-baseline="hanging" font-size="50"  fill="green">Ay</text>
+
+  </svg>
+
+  <!-- <tspan> 用来标记大块文本的子部分，他必须是一个text元素或者别的tspan的子元素-->
+    <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg"> 
+     
+      <text x="100" y="100" font-size="50" text-anchor="middle" fill="green">
+        1200
+        <tspan x="250" y="50" fill="red">100</tspan>
+      </text>
+  
+    </svg>
+
+</body>
+</html>
