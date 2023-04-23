@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script src="./libs/snap.svg-min.js"></script>
+<script>
+  window.onload = function () {
+    // 1. créer un svg
+    let svg=Snap(300, 300)
+    svg.paper=svg
+    console.log(svg === svg.paper)
+    // 2. sur svg, dessiner un cercle
+    let c = svg.circle(100, 100, 50)
+    // 3. ajouter un attribut sur cet cercle
+    c.attr({
+      fill:'red'
+    })
+    // 拿到svg的元素对象
+    console.log(svg.node)
+    // ajouter svg dans body
+    document.body.appendChild(svg.node)
+  }
+</script>
+</body>
+</html>
