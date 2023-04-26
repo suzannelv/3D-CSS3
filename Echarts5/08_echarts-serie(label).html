@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Echarts container必须要有高度，宽度是可选的-->
+  <div id="tutorial" style="height:400px"></div>
+  <script src="../Echarts5/libs/echarts-5.3.3.js"></script>
+  <script>
+    window.onload = function() {
+    //  切换SVG的渲染器，默认是canvas
+      let myChart = echarts.init(document.getElementById('tutorial'), {
+        renderer:'svg'
+      });
+      // 2. 指定图表的配置项和数据
+      let option = {
+        title: {
+          text: 'ECharts 入门示例'
+        },
+        tooltip: {},
+        legend: {
+          data: ['销量']
+        },
+        xAxis: {
+          data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+        },
+        yAxis: {
+
+        },
+        series: [
+          {
+            name: '销量',
+            type: 'bar',
+            label: { // 系列图形上的文本标签
+              show: true,
+              position: [10, 10], // 支持的类型可以查文档，不同type的position的值会有些差异
+              color: "white",
+              fontSize: "20px",
+            },
+              
+            data: [5, 20, 36, 10, 10, 20]
+          }
+        ]
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Echarts container必须要有高度，宽度是可选的-->
+  <div id="tutorial" style="height:400px"></div>
+  <script src="../Echarts5/libs/echarts-5.3.3.js"></script>
+  <script>
+    window.onload = function() {
+      // 1. 基于准备好的dom，初始化echarts实例
+      let myChart = echarts.init(document.getElementById('tutorial'))
+      // 2. 指定图表的配置项和数据
+      let option = {
+         grid:{
+          show:true,
+         },
+        tooltip:{
+          show:true,
+          // 使用了 trigger ，一般也结合 axisPointer
+          trigger: "axis",  // 默认是 item
+          
+          axisPointer: {
+            type: "shadow", //  (默认是竖线 line)  (横线 + 竖线 cross)  (横线 + 竖线 shadow)
+          },
+          // formatter:"<div style='color:red'></div>"
+
+        },
+         
+        xAxis: {
+          show:false,
+          data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+        },
+        yAxis: {},
+        series: [
+          {
+
+            type:'bar',
+            label:{
+              show:true,
+             
+              
+            },
+            
+
+            // 方式三(推荐)
+            data: [
+              {
+                value: 5,
+                name: "衬衫", // 数据项名称, 比如pie系列 tooltip 需要用到
+              },
+              {
+                value: 20,
+                name: "羊毛衫",
+              },
+              {
+                value: 36,
+                name: "雪纺衫",
+              },
+              {
+                value: 10,
+                name: "裤子",
+              },
+              {
+                value: 10,
+                name: "高跟鞋",
+              },
+              {
+                value: 20,
+                name: "袜子",
+              },
+            ],
+
+          
+        
+          }
+        ]
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+
+    }
+  </script>
+</body>
+</html>

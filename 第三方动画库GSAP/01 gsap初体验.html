@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, ul{
+      margin: 0; 
+      padding:0;
+
+    }
+    body{
+      background-image: url(../3D动画/img/grid.png);
+
+    }
+    svg{
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+   <rect id="rectangle" x="0" y="0" width="100" height="50" fill="red"></rect>
+  </svg>
+
+  <script src="./libs/gsap.min.js"></script>
+  <script>
+    // 引入gsap文件后，默认window会添加gsap对象 -> window.gsap={}
+    window.onload = function() {
+      // 支持selector/ document.querySelectorAll()/ domEl
+      gsap.to('#rectangle', {
+        x:200,
+        duration:2 //s
+      })
+    }
+  </script>
+</body>
+</html>
