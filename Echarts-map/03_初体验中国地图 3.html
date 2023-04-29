@@ -12,16 +12,19 @@
   <script src="./geojson/china_geojson.js"></script>
 
   <script>
-    window.china_geojson= {}
+    // window.china_geojson= {}
     window.onload = function() {
     // 1. 注册一下中国地图的geo json
      echarts.registerMap('中国', {geoJSON:china_geojson})
      let myChart = echarts.init(document.getElementById('tutorial'))
       // 2. 在echart中展示地图
       let option = {
-       geo:{
+     series:[
+      {
+        type:'map',
         map:'中国'
-       }
+      }
+     ]
       };
 
       // 使用刚指定的配置项和数据显示图表。

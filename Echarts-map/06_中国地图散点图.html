@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="tutorial" style="height:400px"></div>
+  <script src="../Echarts5/libs/echarts-5.3.3.js"></script>
+  <script src="./geojson/more-geojson/china.js"></script>
+
+  <script>
+    window.china_geojson= {}
+    window.onload = function() {
+    // 1. 注册一下中国地图的geo json
+    // echarts.registerMap('中国', {geoJSON:china_goejson})
+     let myChart = echarts.init(document.getElementById('tutorial'))
+      // 2. 在echart中展示地图
+      let option = {
+       geo:{
+        map:'china'
+       },
+       series: [
+         {
+          name: "散点图",
+              
+            type: "effectScatter",
+            geoIndex: 0, // geo 支持数组，默认是 0
+            coordinateSystem: "geo", // 使用地理坐标系，通过 geoIndex 指定相应的地理坐标系组件。
+            data: [
+              // 第三个参数是为了控制散点图的大小
+              {
+                name: "广东",
+                value: [113.280637, 23.125178, 193],
+              },
+              {
+                name: "北京",
+                value: [116.405285, 39.904989, 199],
+              },
+              {
+                name: "吉林",
+                value: [125.3245, 43.886841, 99],
+              },
+            ],
+            
+              // ====== 散点大小和着色========   
+            symbolSize: function (val) {
+              return val[2] / 10;
+            },
+            itemStyle: {
+              color: "yellow",
+              shadowBlur: 10,
+              shadowColor: "yellow",
+            },
+           // ====== 散点大小和着色========    
+         }
+       ]
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+
+    }
+  </script>
+</body>
+</html>

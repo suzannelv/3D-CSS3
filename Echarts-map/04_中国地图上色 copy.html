@@ -9,19 +9,33 @@
 <body>
   <div id="tutorial" style="height:400px"></div>
   <script src="../Echarts5/libs/echarts-5.3.3.js"></script>
-  <script src="./geojson/china_geojson.js"></script>
+  <script src="./geojson/more-geojson/china.js"></script>
 
   <script>
     window.china_geojson= {}
     window.onload = function() {
     // 1. 注册一下中国地图的geo json
-     echarts.registerMap('中国', {geoJSON:china_geojson})
+    // echarts.registerMap('中国', {geoJSON:china_goejson})
      let myChart = echarts.init(document.getElementById('tutorial'))
       // 2. 在echart中展示地图
       let option = {
        geo:{
-        map:'中国'
-       }
+        map:'china',
+        roam:ffalse, // 是否开启鼠标缩放和平移漫游。默认不开启。
+       },
+       itemStyle: {
+            areaColor: "#023677", // 地图区域的颜色。
+            borderColor: "#1180c7", // 图形的描边颜色。
+          },
+            
+          emphasis: {
+            itemStyle: {
+              areaColor: "#4499d0",
+            },
+            label: {
+              color: "white",
+            },
+          },
       };
 
       // 使用刚指定的配置项和数据显示图表。

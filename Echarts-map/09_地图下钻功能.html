@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="back()">back</button>
+  <div id="tutorial" style="height:400px"></div>
+  <script src="../Echarts5/libs/echarts-5.3.3.js"></script>
+  <script src="./geojson/more-geojson/china.js"></script>
+  <script src="./geojson/gd_geojson.js"></script>
+
+  <script>
+    window.china_geojson= {}
+    let myChart = null
+    let option={}
+    window.onload = function() {
+    // 1. 注册一下中国地图的geo json
+    // echarts.registerMap('中国', {geoJSON:china_goejson})
+     myChart = echarts.init(document.getElementById('tutorial'))
+      // 2. 在echart中展示地图
+      option = {
+      series:[
+        {
+          type:'map',
+          map:'china'
+        }
+      ]
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+
+      // 地图下钻
+      myChart.on('click', function(event){
+        // event.name == 广东
+        if(event.name==='广东'){
+          if(!echarts.getMap(event.name)){
+            console.log("register map") 
+            echarts.registerMap(event.name, {geoJSON:gd_geojson})
+          } 
+          // china map -> guangdong map
+        option.series[0].map=event.name
+        myChart.setOption(option)
+        }
+    
+       
+       
+      })
+
+     
+    }
+    function back() {
+      option.series[0].map="china"
+        myChart.setOption(option)
+     }
+
+  </script>
+</body>
+</html>
